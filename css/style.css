@@ -1,0 +1,54 @@
+html, body {
+  margin:0;
+  padding:0;
+  height:100%;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.jumbotron {
+  padding: 1rem 1rem;
+}
+
+.event {
+  margin-bottom: 1rem;
+}
+
+.importanceOutput {
+  font-weight: bold;
+}
+
+.importanceOutput .circle {
+  display:inline-block;
+  width: 10px;
+  height: 10px;
+}
+
+.lowImp {
+  color: green;
+}
+
+.lowImp-bg {
+  background-color: green;
+  border-radius: 50%;
+}
+
+.mediumImp {
+  color: orange;
+}
+
+.mediumImp-bg {
+  background-color: orange;
+  border-radius: 50%;
+}
+
+.highImp {
+  color: red;
+}
+
+.highImp-bg {
+  background-color: red;
+  border-radius: 50%;
+}
