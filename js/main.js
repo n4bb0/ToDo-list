@@ -6,31 +6,37 @@ if (localStorage.getItem('toDo list')) {
   showList();
 };
 
+// if there isn't any saved list, create an empty one
+if (!localStorage.getItem('toDo list')) {
+  toDoList = [];
+};
+
 
 
 // save an event in the toDoList
 $('#submitBtn').on('click', save);
 
+
+
 function save(e) {
   e.preventDefault();
-
   // create an object for the event
     // create a valid Id, two events can't have the same Id
   let eventId = Math.floor(100000*Math.random() + 1);
-  //validate id
+  // validate id
   for (i = 0; i < toDoList.length; i++) {
     if (eventId === toDoList[i].id) {
       eventId = Math.floor(100000*Math.random() + 1);;
       i = -1;
     }
-  }
+  }; // end for
 
   let description = $('#description').val();
-  //validate description
+  // validate description
   if (!description) {
     alert('Please add a description');
     return false;
-  }
+  };
 
   let date = $('#date').val();
   let importance = $('#importance').val();
@@ -41,10 +47,6 @@ function save(e) {
     'importance': importance
   };
 
-  // if there isn't any saved list, create an empty one
-  if (!localStorage.getItem('toDo list')) {
-    toDoList = [];
-  };
 
   // add the created object to the list and store it
   toDoList.push(toDoEvent);
@@ -53,7 +55,7 @@ function save(e) {
   showList();
   // clear the form
   document.getElementById('inputForm').reset();
-}
+}; // end save
 
 
 
@@ -80,10 +82,10 @@ function showList() {
       $(this).addClass('highImp');
       $(this).children('span:first-child').addClass('highImp-bg');
     }
-  })
+  });
   // attach an event listener to each button
   $('.deleteBtn').on('click', deleteEvent);
-};
+}; // end showList
 
 
 
@@ -101,7 +103,7 @@ function deleteEvent(e) {
   localStorage.setItem('toDo list', JSON.stringify(toDoList));
   // display the list
   showList();
-}
+}; // end deleteEvent
 
 
 
@@ -128,4 +130,4 @@ function formatDate(date) {
   };
 
   return finalDate;
-};
+}; // end formatDate
